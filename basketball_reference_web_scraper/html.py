@@ -855,7 +855,7 @@ class PlayByPlayRow:
         # And remove events that happen during dead time at start / end of period (e.g. substitutions)
         return not self.is_start_of_period \
                and self.html[1].get('colspan') != '5' \
-               and self.timestamp_cell.get('aria-label') != 'Time' \
+               and not self.timestamp_cell.get('aria-label') in ['Time', ''] \
                and not self.timestamp.endswith('00.0')
 
 
